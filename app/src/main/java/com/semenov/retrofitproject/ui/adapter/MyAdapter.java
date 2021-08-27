@@ -20,9 +20,9 @@ import java.util.List;
 public class MyAdapter extends ArrayAdapter<Example> {
 
     private Context context;
-    private /*List<*/Example/*>*/ values;
+    private Example values;
 
-    public MyAdapter(Context context, /*List<*/Example/*>*/ values) {
+    public MyAdapter(Context context, Example values) {
         super(context, R.layout.list_item_pagination, Collections.singletonList(values));
 
         this.context = context;
@@ -41,7 +41,7 @@ public class MyAdapter extends ArrayAdapter<Example> {
 
         TextView textView = (TextView) row.findViewById(R.id.list_item_pagination_text);
 
-        Example item = values/*.get(position)*/;
+        Example item = values;
         String message = item.getQotdDate();
         textView.setText(message);
 

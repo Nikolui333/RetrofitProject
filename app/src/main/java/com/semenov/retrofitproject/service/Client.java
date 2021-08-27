@@ -18,5 +18,5 @@ import retrofit2.http.Path;
 public interface Client {
 
     @GET("qotd")
-    Call/*<List*/<Example>/*>*/ reposForUser();
+    Call <Example> reposForUser();
 }
