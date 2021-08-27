@@ -3,6 +3,7 @@ package com.semenov.retrofitproject.ui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -38,19 +39,22 @@ public class MainActivity extends AppCompatActivity {
         Retrofit retrofit = builder.build();
 
         Client client = retrofit.create(Client.class);
-        Call<List<Example>> call = client.reposForUser("qotd_date");
-
-        call.enqueue(new Callback<List<Example>>() {
+        Call/*<List*/<Example>/*>*/ call = client.reposForUser();
+        Log.d("mylog1","внешний log");
+        call.enqueue(new Callback/*<List*/<Example>/*>*/() {
             @Override
-            public void onResponse(Call<List<Example>> call, Response<List<Example>> response) {
-                List<Example> repos = response.body();
+            public void onResponse(Call/*<List*/<Example>/*>*/ call, Response/*<List*/<Example>/*>*/ response) {
+                /*List<*/Example/*> */repos = response.body();
+                Log.d("mylog1", String.valueOf(repos));
+                Log.d("mylog1","mylog");
 
                 listView.setAdapter(new MyAdapter(MainActivity.this, repos));
             }
 
             @Override
-            public void onFailure(Call<List<Example>> call, Throwable t) {
+            public void onFailure(Call/*<List*/<Example>/*>*/ call, Throwable t) {
                 Toast.makeText(MainActivity.this, "error :(", Toast.LENGTH_SHORT).show();
+                t.printStackTrace();
             }
         });
     }

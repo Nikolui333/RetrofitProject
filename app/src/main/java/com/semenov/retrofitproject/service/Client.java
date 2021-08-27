@@ -1,6 +1,8 @@
 package com.semenov.retrofitproject.service;
 
 //import com.example.retrofitgithubapi.model.GitHubRepo;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import com.semenov.retrofitproject.model.Example;
 
 import java.util.List;
@@ -15,6 +17,6 @@ import retrofit2.http.Path;
 
 public interface Client {
 
-    @GET("qotd_date")
-    Call<List<Example>> reposForUser(@Path("user") String user);
+    @GET("qotd")
+    Call/*<List*/<Example>/*>*/ reposForUser();
 }

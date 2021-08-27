@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.semenov.retrofitproject.R;
 import com.semenov.retrofitproject.model.Example;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -19,10 +20,10 @@ import java.util.List;
 public class MyAdapter extends ArrayAdapter<Example> {
 
     private Context context;
-    private List<Example> values;
+    private /*List<*/Example/*>*/ values;
 
-    public MyAdapter(Context context, List<Example> values) {
-        super(context, R.layout.list_item_pagination, values);
+    public MyAdapter(Context context, /*List<*/Example/*>*/ values) {
+        super(context, R.layout.list_item_pagination, Collections.singletonList(values));
 
         this.context = context;
         this.values = values;
@@ -40,7 +41,7 @@ public class MyAdapter extends ArrayAdapter<Example> {
 
         TextView textView = (TextView) row.findViewById(R.id.list_item_pagination_text);
 
-        Example item = values.get(position);
+        Example item = values/*.get(position)*/;
         String message = item.getQotdDate();
         textView.setText(message);
 

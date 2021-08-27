@@ -23,12 +23,4 @@ public class Example {
         this.qotdDate = qotdDate;
     }
 
-    public Quote getQuote() {
-        return quote;
-    }
-
-    public void setQuote(Quote quote) {
-        this.quote = quote;
-    }
-
 }
